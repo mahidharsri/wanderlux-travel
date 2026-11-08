@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request an Appointment | WanderLux Travel Agency</title>
+    <meta name="description" content="Book a free 30-minute travel consultation with a WanderLux travel expert in Parramatta or online. Choose your preferred date and tell us about your trip.">
+    <meta name="author" content="Mahidhar Sri Pagadala">
+    <meta property="og:title" content="Request an Appointment | WanderLux">
+    <meta property="og:description" content="Book a free consultation with a WanderLux travel expert.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a class="logo" href="index.html">Wander<span>Lux</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="calculator.html">Trip Calculator</a></li>
+                    <li><a href="appointment.html" aria-current="page">Appointments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-banner banner-appointment">
+            <div class="container">
+                <h1>Request an Appointment</h1>
+                <p>Meet a travel consultant in our Parramatta office or by video call. The first consultation is free.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="appointment-heading">
+            <div class="container form-layout">
+                <div class="form-card reveal">
+                    <h2 id="appointment-heading">Your appointment details</h2>
+                    <p>Fields marked with * are required.</p>
+                    <form id="appointment-form" class="email-form" novalidate data-success="Thank you! Your appointment request has been sent. A consultant will email you within one business day to confirm the time.">
+                        <input type="hidden" name="form_type" value="Appointment request">
+                        <input type="hidden" name="subject" value="New appointment request">
+
+                        <div class="form-group">
+                            <label for="appointment-name">Full name *</label>
+                            <input type="text" id="appointment-name" name="from_name" autocomplete="name" data-type="name" data-label="full name" aria-describedby="appointment-name-error" required>
+                            <p class="error-message" id="appointment-name-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointment-email">Email address *</label>
+                                <input type="email" id="appointment-email" name="reply_to" autocomplete="email" data-type="email" data-label="email address" aria-describedby="appointment-email-error" required>
+                                <p class="error-message" id="appointment-email-error" aria-live="polite"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="appointment-phone">Phone number *</label>
+                                <input type="tel" id="appointment-phone" name="phone" autocomplete="tel" data-type="phone" data-label="phone number" aria-describedby="appointment-phone-error" required>
+                                <p class="error-message" id="appointment-phone-error" aria-live="polite"></p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="preferred-date">Preferred date *</label>
+                            <input type="date" id="preferred-date" name="preferred_date" data-type="date" data-label="preferred date" aria-describedby="preferred-date-error" required>
+                            <p class="error-message" id="preferred-date-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="appointment-message">Message *</label>
+                            <textarea id="appointment-message" name="message" data-type="message" data-label="message" aria-describedby="appointment-message-hint appointment-message-error" required></textarea>
+                            <p class="hint" id="appointment-message-hint">Tell us where you would like to go, when, and who is travelling.</p>
+                            <p class="error-message" id="appointment-message-error" aria-live="polite"></p>
+                        </div>
+
+                        <button class="btn btn-gold" type="submit">Send appointment request</button>
+                        <p class="form-status" role="status" aria-live="polite"></p>
+                    </form>
+                </div>
+
+                <aside class="info-panel reveal reveal-delay-1" aria-labelledby="expect-heading">
+                    <h2 id="expect-heading">What to expect</h2>
+                    <ul>
+                        <li>A free 30-minute session with an experienced consultant.</li>
+                        <li>Ideas and price ranges based on your budget.</li>
+                        <li>A written trip proposal emailed within two business days.</li>
+                        <li>No booking fees until you are happy with the plan.</li>
+                    </ul>
+                    <h3>Opening hours</h3>
+                    <p>Monday to Friday: 9:00 am to 6:00 pm<br>Saturday: 10:00 am to 4:00 pm<br>Sunday: Closed</p>
+                    <p>Prefer to call? Ring us on <a href="tel:+61255504400">(02) 5550 4400</a>.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h2>WanderLux Travel Agency</h2>
+                <p>Personalised holiday planning, guided tours and custom travel packages for domestic and international destinations.</p>
+            </div>
+            <div>
+                <h2>Quick links</h2>
+                <ul>
+                    <li><a href="destinations.html">Destinations and services</a></li>
+                    <li><a href="calculator.html">Trip cost calculator</a></li>
+                    <li><a href="appointment.html">Request an appointment</a></li>
+                    <li><a href="about.html">About us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Get in touch</h2>
+                <ul>
+                    <li>Level 4, 160 Church Street, Parramatta NSW 2150</li>
+                    <li><a href="tel:+61255504400">(02) 5550 4400</a></li>
+                    <li><a href="mailto:hello@wanderlux.com.au">hello@wanderlux.com.au</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> WanderLux Travel Agency. Website designed and developed by Mahidhar Sri Pagadala.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/forms.js"></script>
+</body>
+</html>

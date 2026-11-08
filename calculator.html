@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Cost Calculator | WanderLux Travel Agency</title>
+    <meta name="description" content="Estimate the cost of your next holiday with the WanderLux trip cost calculator. Choose a destination, group size, number of days and travel style.">
+    <meta name="author" content="Mahidhar Sri Pagadala">
+    <meta property="og:title" content="Trip Cost Calculator | WanderLux">
+    <meta property="og:description" content="Get an instant estimate for your trip in Australian dollars.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container nav-bar">
+            <a class="logo" href="index.html">Wander<span>Lux</span></a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="destinations.html">Destinations</a></li>
+                    <li><a href="calculator.html" aria-current="page">Trip Calculator</a></li>
+                    <li><a href="appointment.html">Appointments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-banner banner-calculator">
+            <div class="container">
+                <h1>Trip Cost Calculator</h1>
+                <p>Tell us where you want to go and how you like to travel. We will estimate the cost in seconds.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="calculator-heading">
+            <div class="container form-layout">
+                <div class="form-card reveal">
+                    <h2 id="calculator-heading">Your travel preferences</h2>
+                    <form id="trip-form" novalidate>
+                        <div class="form-group">
+                            <label for="destination">Destination</label>
+                            <select id="destination" name="destination" aria-describedby="destination-error" required>
+                                <option value="">Choose a destination</option>
+                            </select>
+                            <p class="error-message" id="destination-error" aria-live="polite"></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="travellers">Number of travellers</label>
+                                <input type="number" id="travellers" name="travellers" min="1" max="20" step="1" value="2" inputmode="numeric" aria-describedby="travellers-hint travellers-error" required>
+                                <p class="hint" id="travellers-hint">Between 1 and 20 people</p>
+                                <p class="error-message" id="travellers-error" aria-live="polite"></p>
+                            </div>
+                            <div class="form-group">
+                                <label for="days">Number of days</label>
+                                <input type="number" id="days" name="days" min="1" max="60" step="1" value="5" inputmode="numeric" aria-describedby="days-hint days-error" required>
+                                <p class="hint" id="days-hint">Between 1 and 60 days</p>
+                                <p class="error-message" id="days-error" aria-live="polite"></p>
+                            </div>
+                        </div>
+
+                        <fieldset class="form-group">
+                            <legend>Travel style</legend>
+                            <div class="style-options">
+                                <div class="style-option">
+                                    <input type="radio" id="style-budget" name="travel-style" value="budget">
+                                    <label for="style-budget">Budget<small>3-star hotels</small></label>
+                                </div>
+                                <div class="style-option">
+                                    <input type="radio" id="style-standard" name="travel-style" value="standard" checked>
+                                    <label for="style-standard">Standard<small>4-star hotels</small></label>
+                                </div>
+                                <div class="style-option">
+                                    <input type="radio" id="style-luxury" name="travel-style" value="luxury">
+                                    <label for="style-luxury">Luxury<small>5-star resorts</small></label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="include-flights" name="include-flights">
+                            <label for="include-flights">Include return economy flights from Sydney</label>
+                        </div>
+
+                        <div class="button-row">
+                            <button class="btn btn-gold" type="submit">Calculate my trip</button>
+                            <button class="btn btn-light" type="reset">Start again</button>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="result-card reveal reveal-delay-1" id="result-card" aria-labelledby="result-heading">
+                    <h2 id="result-heading">Your estimate</h2>
+                    <p class="result-total" id="result-total">$0</p>
+                    <p class="result-summary" id="result-summary" aria-live="polite">Fill in your trip details and press Calculate to see your estimate.</p>
+                    <ul class="breakdown" id="result-breakdown"></ul>
+                    <p class="result-note">Estimates are in Australian dollars and are a guide only. Final prices are confirmed by your consultant.</p>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section section-white" aria-labelledby="rates-heading">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2 id="rates-heading">How we calculate your estimate</h2>
+                    <p>Daily expenses and accommodation are added together, then multiplied by your travel style. Budget is 0.75 times, Standard is 1 times and Luxury is 1.6 times. Flights are added at the end if you include them. One room is booked for every two travellers.</p>
+                </div>
+                <div class="table-wrapper reveal">
+                    <table class="rates-table">
+                        <caption>Standard rates in Australian dollars</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Destination</th>
+                                <th scope="col">Daily cost per traveller</th>
+                                <th scope="col">Room per night</th>
+                                <th scope="col">Return flight per traveller</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rates-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div>
+                <h2>WanderLux Travel Agency</h2>
+                <p>Personalised holiday planning, guided tours and custom travel packages for domestic and international destinations.</p>
+            </div>
+            <div>
+                <h2>Quick links</h2>
+                <ul>
+                    <li><a href="destinations.html">Destinations and services</a></li>
+                    <li><a href="calculator.html">Trip cost calculator</a></li>
+                    <li><a href="appointment.html">Request an appointment</a></li>
+                    <li><a href="about.html">About us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h2>Get in touch</h2>
+                <ul>
+                    <li>Level 4, 160 Church Street, Parramatta NSW 2150</li>
+                    <li><a href="tel:+61255504400">(02) 5550 4400</a></li>
+                    <li><a href="mailto:hello@wanderlux.com.au">hello@wanderlux.com.au</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> WanderLux Travel Agency. Website designed and developed by Mahidhar Sri Pagadala.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/calculator.js"></script>
+</body>
+</html>
